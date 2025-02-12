@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shurtado <shurtado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 15:59:47 by shurtado          #+#    #+#             */
-/*   Updated: 2025/02/03 16:26:31 by shurtado         ###   ########.fr       */
+/*   Created: 2025/02/12 17:19:59 by shurtado          #+#    #+#             */
+/*   Updated: 2025/02/12 18:14:22 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int	main()
+#include <string>
+
+enum Level
 {
-	Zombie *adolfo = newZombie("Adolfo");
-	adolfo->announce();
-	delete adolfo;
-	randomChump("Perico");
-	return (0);
-}
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR,
+	UNKNOWN
+};
+
+class Harl
+{
+	private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+		void (Harl::*f_ptr[4])(void);
+	public:
+		Harl();
+		~Harl();
+		void complain( std::string level );
+		Level getEnumLevel(const std::string &level);
+};
+#endif

@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shurtado <shurtado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 15:59:47 by shurtado          #+#    #+#             */
-/*   Updated: 2025/02/03 16:26:31 by shurtado         ###   ########.fr       */
+/*   Created: 2025/02/12 17:19:59 by shurtado          #+#    #+#             */
+/*   Updated: 2025/02/12 17:58:17 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int	main()
+#include <string>
+
+class Harl
 {
-	Zombie *adolfo = newZombie("Adolfo");
-	adolfo->announce();
-	delete adolfo;
-	randomChump("Perico");
-	return (0);
-}
+	private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+		void (Harl::*f_ptr[4])(void);
+	public:
+		Harl();
+		~Harl();
+		void complain( std::string level );
+};
+#endif

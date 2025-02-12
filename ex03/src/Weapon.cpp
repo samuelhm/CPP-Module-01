@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shurtado <shurtado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 15:59:47 by shurtado          #+#    #+#             */
-/*   Updated: 2025/02/03 16:26:31 by shurtado         ###   ########.fr       */
+/*   Created: 2025/02/12 15:42:34 by shurtado          #+#    #+#             */
+/*   Updated: 2025/02/12 15:54:38 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int	main()
+Weapon::Weapon()
 {
-	Zombie *adolfo = newZombie("Adolfo");
-	adolfo->announce();
-	delete adolfo;
-	randomChump("Perico");
-	return (0);
+	this->type = "hands";
+}
+
+Weapon::Weapon(const string_t &type)
+{
+	this->type = type;
+}
+
+Weapon::~Weapon()
+{
+}
+const string_t& Weapon::getType()
+{
+	return (this->type);
+}
+void	Weapon::setType(const string_t &type)
+{
+	this->type = type;
 }

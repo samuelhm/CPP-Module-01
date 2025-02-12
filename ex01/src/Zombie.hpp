@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shurtado <shurtado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 15:59:47 by shurtado          #+#    #+#             */
-/*   Updated: 2025/02/03 16:26:31 by shurtado         ###   ########.fr       */
+/*   Created: 2025/02/03 15:40:30 by shurtado          #+#    #+#             */
+/*   Updated: 2025/02/12 15:17:47 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <string>
 
-int	main()
+typedef std::string string_t;
+
+class Zombie
 {
-	Zombie *adolfo = newZombie("Adolfo");
-	adolfo->announce();
-	delete adolfo;
-	randomChump("Perico");
-	return (0);
-}
+	private:
+		string_t name;
+	public:
+				Zombie();
+				Zombie(const string_t &name);
+				~Zombie();
+		void	announce();
+		void	set_name(const string_t &name);
+};
+
+Zombie* zombieHorde(int N, std::string name);
