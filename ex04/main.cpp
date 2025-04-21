@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 	content = fill(file);
 	file.close();
 	while (replace(content, argv[2], argv[3]))
-		std::cout << "Coincidencia encontrada!, reemplazando..." << std::endl;
+		(void)argv[2];
 	output = argv[1];
 	output += ".replace";
 	std::ofstream outputFile(output.c_str());
